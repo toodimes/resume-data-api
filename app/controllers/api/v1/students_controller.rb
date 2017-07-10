@@ -11,7 +11,7 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], bio: params[:bio], link_in: params[:linked_in], twitter: params[:twitter], personal_url: params[:personal_url], resume_url: params[:resume_url], github_url: params[:github_url], avatar: params[:avatar])
+    @student = Student.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], bio: params[:bio], link_in: params[:linked_in], twitter: params[:twitter], personal_url: params[:personal_url], resume_url: params[:resume_url], github_url: params[:github_url], avatar: params[:avatar], password: params[:password_digest])
     if @student.save
       render :show
     else
