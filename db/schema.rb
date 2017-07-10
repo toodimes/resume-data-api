@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170710222807) do
-
+ActiveRecord::Schema.define(version: 20170710233534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-
-  create_table "experiences", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string "job_title"
-    t.string "company"
-    t.text "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "capstones", force: :cascade do |t|
     t.string "name"
@@ -35,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170710222807) do
     t.string "screenshot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -45,12 +33,25 @@ ActiveRecord::Schema.define(version: 20170710222807) do
     t.datetime "updated_at", null: false
     t.string "degree"
     t.string "university_name"
+    t.integer "student_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "job_title"
+    t.string "company"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
   end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id"
   end
 
   create_table "studens", force: :cascade do |t|
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170710222807) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end
