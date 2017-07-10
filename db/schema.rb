@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170710222807) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
 
   create_table "capstones", force: :cascade do |t|
     t.string "name"
