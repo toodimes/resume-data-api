@@ -20,11 +20,18 @@ class Api::V1::SkillsController < ApplicationController
 
   def create
     student = Student.find_by(id: params[:student_id])
-    @skill.new()
+    @skill.new(name: params[:name], student_id: student.id)
+    if @skill.save
+      render :show
+    else
+      render json: { errors: @skill.errors.full_messages }, status: 422
+    end
   end
 
   def destroy
     student = Student.find_by(id: params[:student_id])
-
+    skill = student.skills.find_by(id: params[:id])
+    skill.destroy
+    render json: { message: "The Skill has been deleted" }
   end
 end
