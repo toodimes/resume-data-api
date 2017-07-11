@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do 
+      post "/login", to: "students#login"
       resources :students, except: [:new, :edit] do 
         resources :experiences, except: [:new, :edit]
         resources :educations, except: [:new, :edit]
