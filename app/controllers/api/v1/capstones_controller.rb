@@ -14,7 +14,7 @@ class Api::V1::CapstonesController < ApplicationController
 
   def create
     student = Student.find_by(id: params[:student_id])
-    @capstone.new(student_id: student.id, name: params[:name], description: params[:description], url: params[:url], screenshot: params[:screenshot])
+    @capstone = Capstone.new(student_id: student.id, name: params[:name], description: params[:description], url: params[:url], screenshot: params[:screenshot])
     if @capstone.save
       render :show
     else

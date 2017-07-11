@@ -20,7 +20,7 @@ class Api::V1::SkillsController < ApplicationController
 
   def create
     student = Student.find_by(id: params[:student_id])
-    @skill.new(name: params[:name], student_id: student.id)
+    @skill = Skill.new(name: params[:name], student_id: student.id)
     if @skill.save
       render :show
     else
