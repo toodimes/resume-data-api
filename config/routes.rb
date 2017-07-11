@@ -11,5 +11,8 @@ Rails.application.routes.draw do
         resources :capstones, except: [:new, :edit]
       end
     end
+    namespace :v2 do 
+      resources :students, except: [:new, :edit]
+    end
   end
 end
