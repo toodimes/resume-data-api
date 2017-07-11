@@ -30,4 +30,12 @@ class Api::V1::StudentsController < ApplicationController
     @student.destroy
   end
 
+  def login
+    # code that will eventually return a user object with correct email/password
+    @student = Student.find_by(email: params[:email])
+    if @student && @student.authenticate(params[:password])
+      render :show
+    end
+  end
+
 end
