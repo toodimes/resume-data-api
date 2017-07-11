@@ -19,7 +19,7 @@ class Api::V1::EducationsController < ApplicationController
 
   def create
     student = Student.find_by(id: params[:student_id])
-    @educations.new(start_time: params[:start_time], end_time: params[:end_time], degree: params[:degree], university: params[:university], details: params[:details], student_id: params[:student_id])
+    @educations = Education.new(start_time: params[:start_time], end_time: params[:end_time], degree: params[:degree], university: params[:university], details: params[:details], student_id: params[:student_id])
     if @educations.save
       render :show
     else

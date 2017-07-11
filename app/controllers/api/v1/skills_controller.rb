@@ -16,6 +16,7 @@ class Api::V1::SkillsController < ApplicationController
     student = Student.find_by(id: params[:student_id])
     @skill = student.skills.find_by(id: params[:id])
     @skill.update(name: params[:name])
+    render :show
   end
 
   def create
