@@ -2,6 +2,10 @@
 
 First things first:
 
+run `rails db:create`
+
+run `rails db:migrate`
+
 run `rails db:seed`
 
 Your DB will now be seeded. 
